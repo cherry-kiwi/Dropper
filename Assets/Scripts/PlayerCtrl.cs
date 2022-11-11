@@ -6,11 +6,11 @@ public class PlayerCtrl : MonoBehaviour
 {
     public float speed;
     public float HP = 100.0f;
-    Rigidbody rigidbody;
+    Rigidbody rigid;
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
     }
 
     void Update()
