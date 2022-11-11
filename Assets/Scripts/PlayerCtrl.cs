@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     public float speed;
+    public float HP = 100.0f;
     Rigidbody rigidbody;
 
     void Start()
