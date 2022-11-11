@@ -11,7 +11,7 @@ public class Obstacle_01 : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
 
-        PlayerCtrl playerCtrl = GameObject.Find("HP").GetComponent<PlayerCtrl>(); //Player�� HP �ҷ���
+        playerCtrl = GameObject.Find("HP").GetComponent<PlayerCtrl>(); //Player�� HP �ҷ���
     }
 
     void Update()
