@@ -1,12 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle_01 : MonoBehaviour
+public class Obstacle_02 : MonoBehaviour
 {
     PlayerCtrl playerCtrl;
     public Rigidbody rigid;
-    
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
