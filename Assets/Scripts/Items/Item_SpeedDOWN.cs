@@ -36,7 +36,8 @@ public class Item_SpeedDOWN : MonoBehaviour
 
         isSpeedDOWNTime = false;
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
