@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class Item_GRAVITY : MonoBehaviour
 {
-    Physics physics;
+    Director director;
     Rigidbody rigid;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        
+        director = GameObject.Find("Director").GetComponent<Director>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
-            Physics.gravity = new Vector3(0, Mathf.Clamp(Time.time, 4.8f, 18.8f), 0); //기본 중력 9.8 ±5
+            Physics.gravity = new Vector3(0, Mathf.Abs(Physics.gravity.y), 0); //기본 중력 9.8 ±5
+            director.alarm = 2;
+            Destroy(gameObject);
         }
     }
 }

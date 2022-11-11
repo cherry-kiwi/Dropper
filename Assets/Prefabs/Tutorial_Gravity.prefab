@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1903691216281449991}
   - component: {fileID: 1903691216281449988}
   - component: {fileID: 1903691216281449987}
-  - component: {fileID: 2502095964496116997}
   - component: {fileID: 4886957620070186844}
-  - component: {fileID: 6478701678291759570}
+  - component: {fileID: 4475276664313705005}
+  - component: {fileID: 1671543616767000890}
   m_Layer: 0
-  m_Name: Tutorial_Obstacle
+  m_Name: Tutorial_Gravity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8c5e8642e4bea7439f95ad12aabe094, type: 2}
+  - {fileID: 2100000, guid: ef27135a722130946a718bac17975e9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,18 +86,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903691216281449986}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2502095964496116997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903691216281449986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9312bba80b20f4c947ba8f40c60d0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &4886957620070186844
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -111,7 +99,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6478701678291759570
+--- !u!114 &4475276664313705005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903691216281449986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbcaf499aabb484585fe7a516cbbc31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1671543616767000890
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,4 +127,4 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 8179b8bd0a62e264c98693e520937ace, type: 2}
+  sharedProfile: {fileID: 11400000, guid: e0de03b10d201be45b7c26b33cf50414, type: 2}
