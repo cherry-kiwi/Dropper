@@ -2,26 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_GRAVITY : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
-    Physics physics;
+    PlayerCtrl playerCtrl;
     Rigidbody rigid;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>(); //Player의 HP 불러옴
     }
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
-            Physics.gravity = new Vector3(0, Mathf.Clamp(Time.time, 4.8f, 18.8f), 0); //기본 중력 9.8 ±5
+            playerCtrl.HP -= 50.0f;
+            Destroy(gameObject);
         }
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     Rigidbody rigid;
-    public float gravity = 9.8f;
     public float HP = 100.0f;
     public float score = 0.0f;
 
