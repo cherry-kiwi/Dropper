@@ -12,7 +12,6 @@ public class Obstacle_02 : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
 
         PlayerCtrl playerCtrl = GameObject.Find("HP").GetComponent<PlayerCtrl>(); //Player�� HP �ҷ���
-        playerCtrl.HP = 100.0f;
     }
 
     void Update()
@@ -24,7 +23,7 @@ public class Obstacle_02 : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            playerCtrl.HP -= 50;
+            playerCtrl.HP -= 25;
 
             if (playerCtrl.HP <= 0)
             {
