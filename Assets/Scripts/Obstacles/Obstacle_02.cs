@@ -2,27 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle_01: MonoBehaviour
+public class Obstacle_02 : MonoBehaviour
 {
     PlayerCtrl playerCtrl;
-    //PlayerCtrl playerCtrl2;
     public Rigidbody rigid;
     public bool isSpeedDOWNTime = false;
-    
+
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
 
         PlayerCtrl playerCtrl = GameObject.Find("HP").GetComponent<PlayerCtrl>(); //PlayerÀÇ HP ºÒ·¯¿È
-        //PlayerCtrl playerCtrl2 = GameObject.Find("Speed").GetComponent<PlayerCtrl>(); //PlayerÀÇ Speed ºÒ·¯¿È
-
         playerCtrl.HP = 100.0f;
-        //playerCtrl2.speed = 10.0f;
-    }
-
-    void Update()
-    {
-
     }
 
     void speedUp()
@@ -45,8 +36,7 @@ public class Obstacle_01: MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            playerCtrl.HP -= 50;
-            //playerCtrl2.speed -= 10;
+            playerCtrl.HP -= 25;
 
             Invoke("speedUP", 5f);
 
