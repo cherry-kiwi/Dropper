@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    public float speed;
+    public Rigidbody rigid;
+    public float gravity = 9.8f;
     public float HP = 100.0f;
-    Rigidbody rigid;
+    public float score = 0.0f;
+    public float speed;
 
     void Start()
     {
