@@ -2,23 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_SpeedDOWN : MonoBehaviour
+public class Obstacle_02 : MonoBehaviour
 {
-    public bool isSpeedDOWNTime = false;
     PlayerCtrl playerCtrl;
     public Rigidbody rigid;
+    public bool isSpeedDOWNTime = false;
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
 
-        PlayerCtrl playerCtrl = GameObject.Find("speed").GetComponent<PlayerCtrl>(); //Player의 HP 불러옴
-        playerCtrl.speed = 10.0f;
-    }
-
-    void Update()
-    {
-
+        PlayerCtrl playerCtrl = GameObject.Find("HP").GetComponent<PlayerCtrl>(); //Player의 HP 불러옴
+        playerCtrl.HP = 100.0f;
     }
 
     void speedUp()
@@ -37,11 +32,18 @@ public class Item_SpeedDOWN : MonoBehaviour
         isSpeedDOWNTime = false;
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
         {
-            Invoke("speedUp", 5f); //speedUp()을 5초동안 지연           
+            playerCtrl.HP -= 25;
+
+            Invoke("speedUP", 5f);
+
+            if (playerCtrl.HP <= 0)
+            {
+                //GameOver
+            }
         }
     }
 }
