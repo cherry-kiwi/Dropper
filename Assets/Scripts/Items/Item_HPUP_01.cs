@@ -15,10 +15,6 @@ public class Item_HPUP_01 : MonoBehaviour
         playerCtrl.HP = 100.0f;
     }
 
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")

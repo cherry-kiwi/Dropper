@@ -15,11 +15,6 @@ public class Item_ScoreUP : MonoBehaviour
         playerCtrl.score = 0.0f;
     }
 
-    void Update()
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")
