@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject goal;
+    public ParticleSystem particle;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        particle.Stop();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            goal.gameObject.SetActive(true);
+            particle.Play();
+        }
     }
 }
