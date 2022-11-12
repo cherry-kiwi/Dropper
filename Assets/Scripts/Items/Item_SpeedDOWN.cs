@@ -16,11 +16,6 @@ public class Item_SpeedDOWN : MonoBehaviour
         playerCtrl.speed = 10.0f;
     }
 
-    void Update()
-    {
-
-    }
-
     void speedUp()
     {
         isSpeedDOWNTime = true;

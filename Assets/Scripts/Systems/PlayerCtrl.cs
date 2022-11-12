@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCtrl : MonoBehaviour
 {
@@ -11,11 +12,14 @@ public class PlayerCtrl : MonoBehaviour
     public float turnSpeed = 4.0f; // 마우스 회전 속도
     public float speed = 2.0f; // 이동 속도
 
+    public TextMesh text;
+
     private float xRotate = 0.0f; // 내부 사용할 X축 회전량은 별도 정의 ( 카메라 위 아래 방향 )
 
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
+        text.text = score.ToString();
     }
 
     void Update()
@@ -53,5 +57,22 @@ public class PlayerCtrl : MonoBehaviour
         );
         // 이동방향 * 속도 * 프레임단위 시간을 곱해서 카메라의 트랜스폼을 이동
         transform.Translate(dir * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Item_ScoreDOWN")
+        {
+            Destroy(other.gameObject);
+            score += 150;
+            text.text = score.ToString();
+        }
+
+        if (other.gameObject.tag == "Item_ScoreUP")
+        {
+            Destroy(other.gameObject);
+            score -= 150;
+            text.text = score.ToString();
+        }
     }
 }
