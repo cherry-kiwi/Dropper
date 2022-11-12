@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Item_INVINCIBLE : MonoBehaviour
 {
+    bool isInvincible = false;
+
     void Start()
     {
         
@@ -15,7 +17,12 @@ public class Item_INVINCIBLE : MonoBehaviour
     }
     void Invincible()
     {
+        isInvincible = true;
+        if (isInvincible)
+        {
 
+        }
+        isInvincible = false;
     }
 
     private void OnTriggerEnter(Collider other)
