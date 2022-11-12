@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class Item_INVINCIBLE : MonoBehaviour
 {
-    public float invincibleTime; //무적 상태의 시간이 얼마나 흘렀는가 판단하기 위한 변수
-    bool isInvincible = false; //무적 상태인가 판단
-    public GameObject PostProcessingCamera; 
+    private float invincibleTime; //무적 상태의 시간이 얼마나 흘렀는가 판단하기 위한 변수
+    bool isInvincible; //무적 상태인가 판단
+    public GameObject PostProcessingCamera;
 
     void Start()
     {
+        isInvincible = false; //무적 상태 해제
         PostProcessingCamera.gameObject.SetActive(false); //포스트 프로세싱 관리하는 카메라 비활성화
+    }
+
+    void Update()
+    {
+        
     }
 
     void Invincible()
@@ -35,7 +41,7 @@ public class Item_INVINCIBLE : MonoBehaviour
 
             else if (invincibleTime <= 3)
             {
-                isInvincible = false; //무적 상태 해제
+
             }
         }
     }
