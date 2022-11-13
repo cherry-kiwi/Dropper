@@ -5754,12 +5754,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 610058473}
-  vignette_speed: 10
   volume: {fileID: 0}
   vignette: {fileID: 0}
   depthOfField: {fileID: 0}
   Is_On_corutine: 0
   Hit: 0
+  vignette_speed: 10
+  colorAdjustments: {fileID: 0}
+  Is_On_Invincible: 0
+  isInvincible: 0
+  colorAd_speed: 0
 --- !u!114 &839099848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6094,12 +6098,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 610058473}
-  vignette_speed: 10
   volume: {fileID: 0}
   vignette: {fileID: 0}
   depthOfField: {fileID: 0}
   Is_On_corutine: 0
   Hit: 0
+  vignette_speed: 10
+  colorAdjustments: {fileID: 0}
+  Is_On_Invincible: 0
+  isInvincible: 0
+  colorAd_speed: 10
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6751,8 +6759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7251fad64d4d05b4dabd53ce96db425e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invincibleTime: 0
-  PostProcessingCamera: {fileID: 839099843}
 --- !u!65 &1956121656
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6761,7 +6767,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956121654}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -6824,7 +6830,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956121654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.13, y: 494.8, z: 2.540043}
+  m_LocalPosition: {x: -0.13, y: 494.8, z: 1.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
