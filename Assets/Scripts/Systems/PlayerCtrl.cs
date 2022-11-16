@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class PlayerCtrl : MonoBehaviour
 {
     Rigidbody rigid;
@@ -12,7 +12,7 @@ public class PlayerCtrl : MonoBehaviour
     public float turnSpeed = 4.0f; // 마우스 회전 속도
     public float speed = 2.0f; // 이동 속도
 
-    public TextMesh text;
+    public TMP_Text text;
 
     private float xRotate = 0.0f; // 내부 사용할 X축 회전량은 별도 정의 ( 카메라 위 아래 방향 )
 
