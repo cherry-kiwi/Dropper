@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 6f0433dc6d133384aa94e584b1b9a69e, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.032166284, g: 0.0477454, b: 0.12964717, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -353,6 +353,7 @@ MonoBehaviour:
   score: 0
   turnSpeed: 4
   speed: 20
+  text: {fileID: 0}
 --- !u!1 &639806004
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +874,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 610058473}
+  vignette_speed: 0
+  volume: {fileID: 0}
+  vignette: {fileID: 0}
+  depthOfField: {fileID: 0}
+  Is_On_corutine: 0
+  Hit: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
