@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     public GameObject goal;
+    public GameObject clear;
     public ParticleSystem particle;
 
     private void Start()

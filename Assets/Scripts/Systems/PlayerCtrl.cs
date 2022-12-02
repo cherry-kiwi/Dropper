@@ -5,12 +5,16 @@ using UnityEngine.UI;
 using TMPro;
 public class PlayerCtrl : MonoBehaviour
 {
+    public GameObject GameOver;
+
     Rigidbody rigid;
     public float HP = 100.0f;
     public float score = 0.0f;
 
     public float turnSpeed = 4.0f; // 마우스 회전 속도
     public float speed = 2.0f; // 이동 속도
+
+    public bool over = false;
 
     public TMP_Text text;
 
@@ -25,7 +29,14 @@ public class PlayerCtrl : MonoBehaviour
     void Update()
     {
         MouseRotation();
-        KeyboardMove();
+    }
+
+    void FixedUpdate()
+    {
+        if (!over)
+        {
+            KeyboardMove();
+        }
     }
 
     // 마우스의 움직임에 따라 카메라를 회전 시킨다.
@@ -59,8 +70,25 @@ public class PlayerCtrl : MonoBehaviour
         transform.Translate(dir * speed * Time.deltaTime);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            over = true;
+
+            if (!over)
+            {
+                GameOver.SetActive(true);
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Goal")
+        {
+            over = true;
+        }
+
         if (other.gameObject.tag == "Item_ScoreDOWN")
         {
             Destroy(other.gameObject);
