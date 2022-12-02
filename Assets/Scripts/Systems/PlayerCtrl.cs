@@ -5,7 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 public class PlayerCtrl : MonoBehaviour
 {
+    public GameObject cam;
+    public GameObject goal;
     public GameObject GameOver;
+    public Main_Camera camCtrl;
 
     Rigidbody rigid;
     public float HP = 100.0f;
@@ -22,13 +25,23 @@ public class PlayerCtrl : MonoBehaviour
 
     void Start()
     {
+        camCtrl = cam.GetComponent<Main_Camera>();
         rigid = GetComponent<Rigidbody>();
         text.text = score.ToString();
     }
 
     void Update()
     {
-        MouseRotation();
+        if (!over)
+        {
+            MouseRotation();
+        }
+        else
+        {
+            camCtrl.enabled = false;
+            cam.transform.position = new Vector3(0, 15, 0);
+            cam.transform.rotation = Quaternion.Euler(90, 0, 0);
+        }
     }
 
     void FixedUpdate()
@@ -72,22 +85,21 @@ public class PlayerCtrl : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Floor")
+        if (collision.gameObject.tag == "Floor" && !over)
         {
             over = true;
+            GameOver.SetActive(true);
 
-            if (!over)
-            {
-                GameOver.SetActive(true);
-            }
+        }
+
+        if (collision.gameObject.tag == "Goal")
+        {
+            over = true;
+            goal.gameObject.SetActive(true);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Goal")
-        {
-            over = true;
-        }
 
         if (other.gameObject.tag == "Item_ScoreDOWN")
         {
