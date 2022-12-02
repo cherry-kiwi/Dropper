@@ -8,25 +8,32 @@ using UnityEngine.Rendering.Universal;
 public class Main_Camera : MonoBehaviour
 {
     public GameObject player;
-    public float vignette_speed;
 
     public Volume volume;
+
     public Vignette vignette;
     public DepthOfField depthOfField;
     public bool Is_On_corutine = false;
     public bool Hit = false;
+    public float vignette_speed;
+
+    public ColorAdjustments colorAdjustments;
+    public bool isInvincible = false;
+    public float colorAd_speed;
 
     void Start()
     {
         volume = GetComponent<Volume>();
         volume.profile.TryGet(out vignette);
         volume.profile.TryGet(out depthOfField);
+        volume.profile.TryGet(out colorAdjustments);
 
         //vignette.active = false;
         //depthOfField.active = false;
         //Is_On_corutine = false;
         //Hit = false;
     }
+
     void Update()
     {
         transform.rotation = player.transform.rotation;
@@ -36,7 +43,13 @@ public class Main_Camera : MonoBehaviour
         {
             StartCoroutine(Hit_Effect());
         }
+
+        if (isInvincible == true)
+        {
+            StartCoroutine(Invincible_Effect());
+        }
     }
+
     IEnumerator Hit_Effect()
     {
         vignette.active = true;
@@ -66,6 +79,32 @@ public class Main_Camera : MonoBehaviour
         depthOfField.active = false;
         Is_On_corutine = false;
         Hit = false;
+        yield return null;
+    }
+
+    IEnumerator Invincible_Effect()
+    {
+        colorAdjustments.active = true;
+        isInvincible = true;
+        colorAdjustments.hueShift.value = -180.0f;
+
+        for(float i = 0; colorAdjustments.hueShift.value <= 180.0f; i++)
+        {
+            colorAdjustments.hueShift.value += 100 * colorAd_speed * Time.smoothDeltaTime;
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        yield return new WaitForSeconds(0.05f);
+
+        for (float i = 0; colorAdjustments.hueShift.value <= 180.0f; i++)
+        {
+            colorAdjustments.hueShift.value -= 100 * colorAd_speed * Time.smoothDeltaTime;
+            yield return new WaitForSeconds(0.02f);
+        }
+
+        colorAdjustments.active = false;
+        isInvincible = false;
+
         yield return null;
     }
 }
