@@ -18,6 +18,7 @@ public class Main_Camera : MonoBehaviour
     public float vignette_speed;
 
     public ColorAdjustments colorAdjustments;
+    public bool Is_On_Invincible = false;
     public bool isInvincible = false;
     public float colorAd_speed;
 
@@ -44,7 +45,7 @@ public class Main_Camera : MonoBehaviour
             StartCoroutine(Hit_Effect());
         }
 
-        if (isInvincible == true)
+        if (isInvincible && Is_On_Invincible == false)
         {
             StartCoroutine(Invincible_Effect());
         }
@@ -86,24 +87,29 @@ public class Main_Camera : MonoBehaviour
     {
         colorAdjustments.active = true;
         isInvincible = true;
+        Is_On_Invincible = true;
         colorAdjustments.hueShift.value = -180.0f;
 
-        for(float i = 0; colorAdjustments.hueShift.value <= 180.0f; i++)
+        for (float i = 1; i * Time.deltaTime * 1 < 6; i++)
         {
-            colorAdjustments.hueShift.value += 100 * colorAd_speed * Time.smoothDeltaTime;
-            yield return new WaitForSeconds(0.02f);
-        }
+            for (float j = 0; colorAdjustments.hueShift.value <= 0; j++)
+            {
+                colorAdjustments.hueShift.value += 100 * colorAd_speed * Time.smoothDeltaTime;
+                yield return new WaitForSeconds(0.02f);
+            }
 
-        yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.05f);
 
-        for (float i = 0; colorAdjustments.hueShift.value <= 180.0f; i++)
-        {
-            colorAdjustments.hueShift.value -= 100 * colorAd_speed * Time.smoothDeltaTime;
-            yield return new WaitForSeconds(0.02f);
+            for (float j = 0; colorAdjustments.hueShift.value <= 0; j++)
+            {
+                colorAdjustments.hueShift.value -= 100 * colorAd_speed * Time.smoothDeltaTime;
+                yield return new WaitForSeconds(0.02f);
+            }
         }
 
         colorAdjustments.active = false;
         isInvincible = false;
+        Is_On_Invincible = false;
 
         yield return null;
     }
