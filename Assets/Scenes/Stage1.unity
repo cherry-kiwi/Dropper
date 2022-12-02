@@ -5027,6 +5027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRPlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5987,12 +5991,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 610058473}
-  vignette_speed: 10
   volume: {fileID: 0}
   vignette: {fileID: 0}
   depthOfField: {fileID: 0}
   Is_On_corutine: 0
   Hit: 0
+  vignette_speed: 10
+  colorAdjustments: {fileID: 0}
+  Is_On_Invincible: 0
+  isInvincible: 0
+  colorAd_speed: 0
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
