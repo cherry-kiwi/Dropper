@@ -201,7 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afffe07c2bc79c544a0732d17886bbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  goal: {fileID: 0}
   GameOver: {fileID: 0}
+  camCtrl: {fileID: 0}
   HP: 100
   score: 0
   turnSpeed: 4
@@ -1361,6 +1364,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 535489118696282913, guid: 4351a80c0b30ce44e906a2cdc74a573e, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194225}
+    - target: {fileID: 535489118696282913, guid: 4351a80c0b30ce44e906a2cdc74a573e, type: 3}
+      propertyPath: goal
+      value: 
+      objectReference: {fileID: 1846259931}
+    - target: {fileID: 535489118696282913, guid: 4351a80c0b30ce44e906a2cdc74a573e, type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 1164889433}
@@ -1425,10 +1436,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2064296047269343989, guid: e92598ff6abbb354eba1723c0de94a69, type: 3}
-      propertyPath: goal
-      value: 
-      objectReference: {fileID: 1846259931}
     - target: {fileID: 2064296047269343992, guid: e92598ff6abbb354eba1723c0de94a69, type: 3}
       propertyPath: m_Name
       value: Goal

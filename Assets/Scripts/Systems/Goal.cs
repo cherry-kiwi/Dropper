@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public GameObject goal;
-    public GameObject clear;
     public ParticleSystem particle;
 
     private void Start()
     {
         particle.Stop();
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
-            goal.gameObject.SetActive(true);
             particle.Play();
         }
     }
+
 }
