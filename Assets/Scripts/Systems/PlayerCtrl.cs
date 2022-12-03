@@ -32,16 +32,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void Update()
     {
-        if (!over)
-        {
-            MouseRotation();
-        }
-        else
-        {
-            camCtrl.enabled = false;
-            cam.transform.position = new Vector3(0, 15, 0);
-            cam.transform.rotation = Quaternion.Euler(90, 0, 0);
-        }
+
     }
 
     void FixedUpdate()

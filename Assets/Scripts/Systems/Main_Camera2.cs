@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class Main_Camera : MonoBehaviour
+public class Main_Camera2 : MonoBehaviour
 {
     public GameObject player;
 
@@ -38,7 +38,7 @@ public class Main_Camera : MonoBehaviour
     void Update()
     {
         transform.rotation = player.transform.rotation;
-        transform.position = player.transform.position + new Vector3(0, 1, 0);
+        transform.position = player.transform.position;
 
         if (Hit && Is_On_corutine == false)
         {
