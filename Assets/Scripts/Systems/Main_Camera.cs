@@ -56,11 +56,10 @@ public class Main_Camera : MonoBehaviour
         vignette.active = true;
         Is_On_corutine = true;
         Hit = true;
-        depthOfField.active = true;
-        vignette.intensity.value = 0f;
-        depthOfField.focalLength.value = 0;
+        vignette.intensity.value = 0.5f;
+        depthOfField.focalLength.value = 1f;
 
-        for(float i = 0; vignette.intensity.value <= 0.5f; i++)
+        for(float i = 0; vignette.intensity.value <= 0.99f; i++)
         {
             vignette.intensity.value += vignette_speed * Time.smoothDeltaTime;
             depthOfField.focalLength.value += 100 * vignette_speed * Time.smoothDeltaTime;
@@ -69,15 +68,14 @@ public class Main_Camera : MonoBehaviour
 
         yield return new WaitForSeconds(0.05f);
 
-        for (float i = 0; vignette.intensity.value <= 0.5f; i++)
+        for (float i = 0; vignette.intensity.value >= 0.01f; i++)
         {
-            vignette.intensity.value -= vignette_speed * Time.smoothDeltaTime;
+            vignette.intensity.value -= vignette_speed / 2f * Time.smoothDeltaTime;
             depthOfField.focalLength.value -= 100 * vignette_speed * Time.smoothDeltaTime;
             yield return new WaitForSeconds(0.02f);
         }
 
         vignette.active = false;
-        depthOfField.active = false;
         Is_On_corutine = false;
         Hit = false;
         yield return null;
