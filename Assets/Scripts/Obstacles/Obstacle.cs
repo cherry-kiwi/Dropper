@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Obstacle : MonoBehaviour
 {
-    Main_Camera Cam;
+    public Main_Camera Cam;
     PlayerCtrl playerCtrl;
     Rigidbody rigid;
 
@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
 
-        Cam = GameObject.Find("Main Camera").GetComponent<Main_Camera>();
+        Cam = GameObject.Find("CenterEyeAnchor").GetComponent<Main_Camera>();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
     }
 
