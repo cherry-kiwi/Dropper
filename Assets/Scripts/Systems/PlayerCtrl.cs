@@ -20,6 +20,7 @@ public class PlayerCtrl : MonoBehaviour
     public bool over = false;
 
     public TMP_Text text;
+    public TMP_Text hp;
 
     private float xRotate = 0.0f; // 내부 사용할 X축 회전량은 별도 정의 ( 카메라 위 아래 방향 )
 
@@ -28,6 +29,7 @@ public class PlayerCtrl : MonoBehaviour
         camCtrl = cam.GetComponent<Main_Camera>();
         rigid = GetComponent<Rigidbody>();
         text.text = score.ToString();
+        hp.text = HP.ToString();
     }
 
     void Update()
