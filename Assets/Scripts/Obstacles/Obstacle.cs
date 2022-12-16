@@ -22,7 +22,7 @@ public class Obstacle : MonoBehaviour
         if (other.gameObject.name == "Player")
         {
             Cam.Hit = true;
-            playerCtrl.HP -= 50.0f;
+            playerCtrl.HP -= 10.0f;
             Destroy(gameObject);
         }
     }
